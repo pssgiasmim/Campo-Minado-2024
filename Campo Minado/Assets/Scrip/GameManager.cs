@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     const int diametroDoCampo = 5;
 
+    private void Start()
+    {
+        GerarCampoMinado();
+    }
+
     //Método que cria uma matriz e preenche os campos com instancias
     private void GerarCampoMinado()
     {
@@ -27,10 +32,13 @@ public class GameManager : MonoBehaviour
                 Area area = Instantiate(areaPrefab, new Vector2(i, j), Quaternion.identity).GetComponent<Area>();
                 areas[i, i] = area;
             }
-            
-
-
+      
         }
+
+    }
+
+    public void ChecarEntorno(int i, int j)
+    {
 
     }
 }
