@@ -9,8 +9,9 @@ public class Area : MonoBehaviour
 
     [SerializeField] Sprite[] spritesVazios;
 
-    void Clicado()
+    public void Clicado()
     {
+        Debug.Log("Clicado");
         if (!revelado)
         {
             if (bomba)
