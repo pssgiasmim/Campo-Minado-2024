@@ -8,7 +8,17 @@ public class Area : MonoBehaviour
     bool bomba;
     bool revelado;
 
-    [SerializeField] Sprite[] sprite;
+    int indexI, indexJ;
+
+    [SerializeField] Sprite[] spritesVazios;
+
+    public bool Bomba { get => bomba; }
+
+    public void DefinirIndex(int i, int j)
+    {
+        indexI = i;
+        indexJ = j;
+    }
 
     //Método para se CLICAR num bloquinho, ele revelar se tem bomba ou não.
     private void Clicado()
@@ -20,8 +30,10 @@ public class Area : MonoBehaviour
                 //game over
             }
             else
-            {               // sempre que for pegar um itenm do GetComponent, ele deve estar no meio do sinal de  < e >.
-                //GetComponent<SpriteRenderer>().sprite =
+            {
+
+                // sempre que for pegar um iten do GetComponent, ele deve estar no meio do sinal de  < e >.
+                GetComponent<SpriteRenderer>().sprite = spritesVazios[GameManager.instance.ChecarEntorno(indexI, indexJ)];
             }
         }
 

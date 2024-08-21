@@ -5,6 +5,15 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
+
+    #region Singleton
+    public static GameManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
     Area[,] areas; //para indicar que se trata e uma Matriz, deve-se colocar uma vírgula no meio de chaves
     //essa matriz NÃO está declarando tamanho e nem valores, apenas indica ser uma matriz;
 
@@ -30,6 +39,7 @@ public class GameManager : MonoBehaviour
             for (int j = 0; j < diametroDoCampo; j++)
             {
                 Area area = Instantiate(areaPrefab, new Vector2(i, j), Quaternion.identity).GetComponent<Area>();
+                area.DefinirIndex(i, j);
                 areas[i, i] = area;
             }
       
@@ -37,8 +47,31 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ChecarEntorno(int i, int j)
+    //Método que checa os blocos ao redor do bloco selecionado
+    public int ChecarEntorno(int x, int y)
     {
+        //bombas é 0
+        int quantidadeDeBombas = 0;
+         
+        //verificação das linhas
+        for (int i = -1; i < 3; i++)
+        {
+            //verificação das colunas
+            for (int j = -1; j < 3; j++)
+            {
+                if (x+1 < diametroDoCampo && y+j < diametroDoCampo && x+i >= 0 && y+j >= 0)
+                {
+                    //verificação se tem bomba na area atual que é linha + coluna [ i+j ]
+                    if (areas[x + i, y + j].Bomba)
+                    {
+                        quantidadeDeBombas++;
+                    }
 
+                }
+
+            }
+        }
+
+        return quantidadeDeBombas;
     }
 }
