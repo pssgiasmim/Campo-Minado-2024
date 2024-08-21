@@ -28,4 +28,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void ChecarEntorno(int x, int y)
+    {
+
+    }
 }
