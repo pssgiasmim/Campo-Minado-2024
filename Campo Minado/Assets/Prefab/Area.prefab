@@ -109,6 +109,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75a7071338e5b8840b4593b63bc248d0, type: 3}
   - {fileID: 21300000, guid: 2a392f8c2674c5b4e9e5652f5492f218, type: 3}
   - {fileID: 21300000, guid: bff2c0e98c89f614896515e2caa37350, type: 3}
+  bombaSprite: {fileID: 21300000, guid: 8c9ff6bdb1c01bc4fabb52246d56cedb, type: 3}
 --- !u!61 &6362252463837334790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,4 +167,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2743576969470511227}
+          m_TargetAssemblyTypeName: Area, Assembly-CSharp
+          m_MethodName: Revelar
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

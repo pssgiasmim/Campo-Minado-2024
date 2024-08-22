@@ -12,7 +12,8 @@ public class Area : MonoBehaviour
 
     [SerializeField] Sprite[] spritesVazios;
 
-    public bool Bomba { get => bomba; }
+    [SerializeField] Sprite bombaSprite;
+    public bool Bomba { get => bomba; set => bomba = value; }
 
     public void DefinirIndex(int i, int j)
     {
@@ -20,8 +21,8 @@ public class Area : MonoBehaviour
         indexJ = j;
     }
 
-    //Método para se CLICAR num bloquinho, ele revelar se tem bomba ou não.
-    private void Clicado()
+    //Método para se clicar num bloquinho, ele REVELAR se tem bomba ou não.
+    public void Revelar()
     {
         if (!revelado) // o ponto de ! faz a inversão de valores do "revelado". Se ele está verdadeiro vira falso.
         {
@@ -31,13 +32,22 @@ public class Area : MonoBehaviour
             }
             else
             {
+                revelado = true;
 
                 // sempre que for pegar um iten do GetComponent, ele deve estar no meio do sinal de  < e >.
                 GetComponent<SpriteRenderer>().sprite = spritesVazios[GameManager.instance.ChecarEntorno(indexI, indexJ)];
+                
             }
         }
 
+        GameManager.instance.GameOver();
+
     }
 
+    public void RevelarBomba()
+    {
+        revelado = true;
+        GetComponent<SpriteRenderer>().sprite = bombaSprite;
 
+    }
 }
