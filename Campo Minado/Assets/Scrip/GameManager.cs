@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
         //iterador inica em, 0
         int quantidadeDeBombas = 0;
 
+        //eu sei que eu preciso ter 10 bombas na cena, mas não sei quantas vezes é necessário repetir o procedimento até chegar no 10. Isso é um WHILE
         //enquanto a quantidade de bombas for menor do que 10
         while (quantidadeDeBombas < numeroDeBombas)
         {
@@ -128,7 +129,8 @@ public class GameManager : MonoBehaviour
     //Método para chamar a tela de game over
     public void GameOver()
     {
-        for (int i = 0; i < diametroDoCampo; i++)
+
+        /*for (int i = 0; i < diametroDoCampo; i++)
         {
             for (int j = 0; j < diametroDoCampo; j++)
             {
@@ -138,7 +140,23 @@ public class GameManager : MonoBehaviour
                     areas[i, j].RevelarBomba();
                 }
             }
+
+        }*/
+
+        //O FOREACH percorre todos os elementos de uma matriz, substitui os dois for acima
+        foreach (Area area in areas)
+        {
+            if(area.Bomba)
+            {
+                area.RevelarBomba();
+               //o Break é um interrompimento forçado do método, quando certa condição for atendida. No nosso caso, é caso a area que ele percorreu naquele momento seja uma bomba.
+            }
             
+
         }
+
+
+
+        
     }
 }
