@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
         GerarCampoMinado();
     }
 
-    public void DerfinirDiametro(int value)
+    public void DerfinirDiametro(string value)
     {
-        diametroDoCampo = value;
+        diametroDoCampo = int.Parse(value);
     }
 
-    public void DefinirNumeroDeBombas(int value)
+    public void DefinirNumeroDeBombas(string value)
     {
-        numeroDeBombas = value;
+        numeroDeBombas = int.Parse(value) ;
     }
 
     //Método que cria uma matriz e preenche os campos com instancias
