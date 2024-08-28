@@ -19,12 +19,22 @@ public class GameManager : MonoBehaviour
 
     [SerializeField ]GameObject areaPrefab;
 
-    const int diametroDoCampo = 5;
-    const int numeroDeBombas = 10;
+     int diametroDoCampo;
+     int numeroDeBombas;
 
     private void Start()
     {
         GerarCampoMinado();
+    }
+
+    public void DerfinirDiametro(int value)
+    {
+        diametroDoCampo = value;
+    }
+
+    public void DefinirNumeroDeBombas(int value)
+    {
+        numeroDeBombas = value;
     }
 
     //Método que cria uma matriz e preenche os campos com instancias
