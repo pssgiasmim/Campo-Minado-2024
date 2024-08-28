@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Método que cria uma matriz e preenche os campos com instancias
-    private void GerarCampoMinado()
+    public void GerarCampoMinado()
     {
         areas = new Area[diametroDoCampo, diametroDoCampo]; //declara o tamanho em X e Y da matriz, 25 quadradinhos na cena.
 
