@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Image barraDeDificuldade;
+    [SerializeField] Gradient corDaBarra;
 
-    // Update is called once per frame
-    void Update()
+    public void AtualizarBarra(float value)
     {
-        
+        barraDeDificuldade.fillAmount = value;
+        barraDeDificuldade.color = corDaBarra.Evaluate(value);
     }
 }
