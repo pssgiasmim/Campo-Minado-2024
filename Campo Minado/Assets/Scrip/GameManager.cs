@@ -26,19 +26,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        managerUI = GetComponent<ManagerUI>();
     }
 
     public void DerfinirDiametro(string value)
     {
         diametroDoCampo = int.Parse(value);
-        managerUI.AtualizarBarra(numeroDeBombas / (diametroDoCampo * diametroDoCampo));
+        managerUI.AtualizarBarra((float)numeroDeBombas / (diametroDoCampo * diametroDoCampo));
     }
 
     public void DefinirNumeroDeBombas(string value)
     {
         numeroDeBombas = int.Parse(value) ;
-        managerUI.AtualizarBarra(numeroDeBombas / (diametroDoCampo * diametroDoCampo));
+        managerUI.AtualizarBarra((float)numeroDeBombas / (diametroDoCampo * diametroDoCampo));
     }
 
     //Método que cria uma matriz e preenche os campos com instancias
