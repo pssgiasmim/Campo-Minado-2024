@@ -40,29 +40,37 @@ public class GameManager : MonoBehaviour
     //Método que cria uma matriz e preenche os campos com instancias
     public void GerarCampoMinado()
     {
-        areas = new Area[diametroDoCampo, diametroDoCampo]; //declara o tamanho em X e Y da matriz, 25 quadradinhos na cena.
-
-        //pecorre as linhas da matriz
-        //quando você não tem acesso ao tamanho da área, mas precisa da metade dela, vc faz "Mathf.Sqrt(areas)". Que é a raíz quadrada do tamamho total, mas vc precisa ter um tamanho exato.
-        for (int i = 0; i < diametroDoCampo; i++)
+        //Mathf.Pow é para fazer um número ficar ao quadrado 
+        if (numeroDeBombas < Mathf.Pow(diametroDoCampo, 2))
         {
-            //percorre as colunas da matriz
-            for (int j = 0; j < diametroDoCampo; j++)
+            areas = new Area[diametroDoCampo, diametroDoCampo]; //declara o tamanho em X e Y da matriz, 25 quadradinhos na cena.
+
+            //pecorre as linhas da matriz
+            //quando você não tem acesso ao tamanho da área, mas precisa da metade dela, vc faz "Mathf.Sqrt(areas)". Que é a raíz quadrada do tamamho total, mas vc precisa ter um tamanho exato.
+            for (int i = 0; i < diametroDoCampo; i++)
             {
-                Area area = Instantiate(areaPrefab, new Vector2(i, j), Quaternion.identity).GetComponent<Area>();
-                area.DefinirIndex(i, j);
-                areas[i, j] = area;
+                //percorre as colunas da matriz
+                for (int j = 0; j < diametroDoCampo; j++)
+                {
+                    Area area = Instantiate(areaPrefab, new Vector2(i, j), Quaternion.identity).GetComponent<Area>();
+                    area.DefinirIndex(i, j);
+                    areas[i, j] = area;
+                }
+
             }
-      
+
+            //Organizar a camera para ficar no meio do diametro
+            Camera.main.transform.position = new Vector3(diametroDoCampo / 2f - 0.5f, diametroDoCampo / 2f - 0.5f, -10);
+
+            //Organizar a camera na altura do campo (matriz)
+            Camera.main.orthographicSize = diametroDoCampo / 2f;
+
+            DistribuirBombas();
+
+            //Busca o objeto "Menu Window" e faz ele ligar [true] ou desligar [false]
+            GameObject.Find("Menu Window").SetActive(false);
         }
-
-        //Organizar a camera para ficar no meio do diametro
-        Camera.main.transform.position = new Vector3(diametroDoCampo / 2f - 0.5f, diametroDoCampo / 2f - 0.5f, -10);
-
-        //Organizar a camera na altura do campo (matriz)
-        Camera.main.orthographicSize = diametroDoCampo / 2f;
-
-        DistribuirBombas();
+       
 
     }
 
