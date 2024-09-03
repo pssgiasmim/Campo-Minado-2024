@@ -28,7 +28,7 @@ public class Area : MonoBehaviour
         {
             if (bomba)
             {
-                //game over
+                GameManager.instance.GameOver();
             }
             else
             {
@@ -40,7 +40,7 @@ public class Area : MonoBehaviour
             }
         }
 
-        GameManager.instance.GameOver();
+        
 
     }
 

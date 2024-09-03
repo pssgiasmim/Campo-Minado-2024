@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
         int quantidadeDeBombas = 0;
          
         //verificação das linhas
-        for (int i = -1; i < 3; i++)
+        for (int i = -1; i < 2; i++)
         {
             //verificação das colunas
-            for (int j = -1; j < 3; j++)
+            for (int j = -1; j < 2; j++)
             {
                 if (x+i < diametroDoCampo && y+j < diametroDoCampo && x+i >= 0 && y+j >= 0)
                 {
