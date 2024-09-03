@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
      int diametroDoCampo;
      int numeroDeBombas;
 
+    ManagerUI managerUI;
+
     private void Start()
     {
         
@@ -30,11 +32,13 @@ public class GameManager : MonoBehaviour
     public void DerfinirDiametro(string value)
     {
         diametroDoCampo = int.Parse(value);
+        managerUI.AtualizarBarra(numeroDeBombas / (diametroDoCampo * diametroDoCampo));
     }
 
     public void DefinirNumeroDeBombas(string value)
     {
         numeroDeBombas = int.Parse(value) ;
+        managerUI.AtualizarBarra(numeroDeBombas / (diametroDoCampo * diametroDoCampo));
     }
 
     //Método que cria uma matriz e preenche os campos com instancias
