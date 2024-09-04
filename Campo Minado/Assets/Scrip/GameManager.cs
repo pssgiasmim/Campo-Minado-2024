@@ -209,6 +209,7 @@ public class GameManager : MonoBehaviour
 
         }
 
+        //ligar a tela de game over
         gameOver.SetActive(true);
 
 
