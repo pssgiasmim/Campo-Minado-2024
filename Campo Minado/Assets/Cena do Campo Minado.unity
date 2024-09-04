@@ -1768,7 +1768,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1081016427}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DerfinirDiametro
+        m_MethodName: DefinirNumeroDeBombas
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
