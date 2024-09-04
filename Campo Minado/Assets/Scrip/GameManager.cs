@@ -17,16 +17,19 @@ public class GameManager : MonoBehaviour
     Area[,] areas; //para indicar que se trata e uma Matriz, deve-se colocar uma vírgula no meio de chaves
     //essa matriz NÃO está declarando tamanho e nem valores, apenas indica ser uma matriz;
 
-    [SerializeField ]GameObject areaPrefab;
+    [SerializeField] GameObject areaPrefab;
 
-     int diametroDoCampo;
-     int numeroDeBombas;
+    int diametroDoCampo;
+    int numeroDeBombas;
 
     ManagerUI managerUI;
+    GameObject menu, gameOver;
 
     private void Start()
     {
         managerUI = GetComponent<ManagerUI>();
+        menu = GameObject.Find("Menu Window");
+        gameOver = GameObject.Find("Game Over");
     }
 
     public void DerfinirDiametro(string value)
@@ -37,9 +40,41 @@ public class GameManager : MonoBehaviour
 
     public void DefinirNumeroDeBombas(string value)
     {
-        numeroDeBombas = int.Parse(value) ;
+        numeroDeBombas = int.Parse(value);
         managerUI.AtualizarBarra((float)numeroDeBombas / (diametroDoCampo * diametroDoCampo));
     }
+
+    public void IniciarJogo()
+    {
+        ExcluirCampo();
+
+        //Organizar a camera para ficar no meio do diametro
+        Camera.main.transform.position = new Vector3(diametroDoCampo / 2f - 0.5f, diametroDoCampo / 2f - 0.5f, -10);
+
+        //Organizar a camera na altura do campo (matriz)
+        Camera.main.orthographicSize = diametroDoCampo / 2f;
+
+        DistribuirBombas();
+
+        //Busca o objeto "Menu Window" e faz ele desligar [false]
+        menu.SetActive(false);
+
+        //Busca o objeto "Game Over" e faz ele desligar [false]
+        gameOver.SetActive(false);
+    }
+
+    private void ExcluirCampo()
+    {
+        if (areas != null) // != siginifica diferente
+        {
+            foreach (Area area in areas)
+            {
+                Destroy(area.gameObject);
+            }
+        }
+        
+    }
+
 
     //Método que cria uma matriz e preenche os campos com instancias
     public void GerarCampoMinado()
@@ -63,16 +98,7 @@ public class GameManager : MonoBehaviour
 
             }
 
-            //Organizar a camera para ficar no meio do diametro
-            Camera.main.transform.position = new Vector3(diametroDoCampo / 2f - 0.5f, diametroDoCampo / 2f - 0.5f, -10);
-
-            //Organizar a camera na altura do campo (matriz)
-            Camera.main.orthographicSize = diametroDoCampo / 2f;
-
-            DistribuirBombas();
-
-            //Busca o objeto "Menu Window" e faz ele ligar [true] ou desligar [false]
-            GameObject.Find("Menu Window").SetActive(false);
+          
         }
        
 
@@ -183,8 +209,8 @@ public class GameManager : MonoBehaviour
 
         }
 
+        gameOver.SetActive(true);
 
 
-        
     }
 }
