@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     public void IniciarJogo()
     {
         ExcluirCampo();
+        GerarCampoMinado();
 
         //Organizar a camera para ficar no meio do diametro
         Camera.main.transform.position = new Vector3(diametroDoCampo / 2f - 0.5f, diametroDoCampo / 2f - 0.5f, -10);
