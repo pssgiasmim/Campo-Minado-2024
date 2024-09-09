@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Verificação se a variável bandeira, que é falso, se tornou verdadeiro
-    public void Bandeira()
+    public void ModoBandeira()
     {
         if (!bandeira)
         {

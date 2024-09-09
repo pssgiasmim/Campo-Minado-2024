@@ -10,9 +10,11 @@ public class Area : MonoBehaviour
 
     int indexI, indexJ;
 
+
     [SerializeField] Sprite[] spritesVazios;
 
     [SerializeField] Sprite bombaSprite;
+    [SerializeField] Sprite bandeira;
     public bool Bomba { get => bomba; set => bomba = value; }
 
     public void DefinirIndex(int i, int j)
@@ -20,6 +22,7 @@ public class Area : MonoBehaviour
         indexI = i;
         indexJ = j;
     }
+
 
     //Método para se clicar num bloquinho, ele REVELAR se tem bomba ou não.
     public void Revelar()
@@ -40,8 +43,7 @@ public class Area : MonoBehaviour
             }
         }
 
-        
-
+        BloqueioArea();
     }
 
     public void RevelarBomba()
@@ -50,4 +52,15 @@ public class Area : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = bombaSprite;
 
     }
+
+    //Método para dar a opção de ativar o modo bandeira [bloqueia o bloco e muda a sprite]
+    public void BloqueioArea()
+    {
+        if (GameManager.instance.bandeira == true)
+        {
+            revelado = true;
+            GetComponent<SpriteRenderer>().sprite = bandeira;
+        }
+    }
+  
 }
