@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     Area[,] areas; //para indicar que se trata e uma Matriz, deve-se colocar uma vírgula no meio de chaves
     //essa matriz NÃO está declarando tamanho e nem valores, apenas indica ser uma matriz;
 
+    //Variavel que é chamada no script area, para verificação do modo bandeira
+    public bool bandeira = false;
+
     [SerializeField] GameObject areaPrefab;
 
     int diametroDoCampo;
@@ -181,6 +184,10 @@ public class GameManager : MonoBehaviour
         
     }
 
+
+    //Método para ver se o jogador venceu
+
+
     //Método para chamar a tela de game over
     public void GameOver()
     {
@@ -214,5 +221,18 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(true);
 
 
+    }
+
+    //Verificação se a variável bandeira, que é falso, se tornou verdadeiro
+    public void Bandeira()
+    {
+        if (!bandeira)
+        {
+            bandeira = true;
+        }
+        else
+        {
+            bandeira = false;
+        }
     }
 }
