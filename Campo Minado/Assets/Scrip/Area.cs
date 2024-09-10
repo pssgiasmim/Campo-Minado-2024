@@ -27,7 +27,7 @@ public class Area : MonoBehaviour
     //Método para se clicar num bloquinho, ele REVELAR se tem bomba ou não.
     public void Revelar()
     {
-        if (!revelado) // o ponto de ! faz a inversão de valores do "revelado". Se ele está verdadeiro vira falso.
+        if (!revelado && GameManager.instance.bandeira == false) // o ponto de ! faz a inversão de valores do "revelado". Se ele está verdadeiro vira falso.
         {
             if (bomba)
             {
@@ -43,7 +43,7 @@ public class Area : MonoBehaviour
             }
         }
 
-        BloqueioArea();
+        
     }
 
     public void RevelarBomba()
@@ -58,9 +58,14 @@ public class Area : MonoBehaviour
     {
         if (GameManager.instance.bandeira == true)
         {
-            revelado = true;
-            GetComponent<SpriteRenderer>().sprite = bandeira;
+           
+            
+                revelado = true;
+                GetComponent<SpriteRenderer>().sprite = bandeira;
+            
+            
         }
     }
   
+    
 }

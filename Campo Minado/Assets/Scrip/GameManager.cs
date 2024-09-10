@@ -184,10 +184,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-
-    //Método para ver se o jogador venceu
-
-
     //Método para chamar a tela de game over
     public void GameOver()
     {
