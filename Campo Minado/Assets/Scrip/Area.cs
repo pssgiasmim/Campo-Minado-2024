@@ -6,7 +6,7 @@ public class Area : MonoBehaviour
 {
 
     bool bomba;
-    bool revelado;
+     public bool revelado;
 
     int indexI, indexJ;
 

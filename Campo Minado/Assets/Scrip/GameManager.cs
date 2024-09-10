@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     int numeroDeBombas;
 
     ManagerUI managerUI;
-    GameObject menu, gameOver;
+    GameObject menu, gameOver, voceVenceu;
 
     private void Start()
     {
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
         if (areas != null) // != siginifica diferente
         {
+            //percorre a matriz areas é do tipo Area, area é o iterador
             foreach (Area area in areas)
             {
                 Destroy(area.gameObject);
@@ -229,6 +230,23 @@ public class GameManager : MonoBehaviour
         else
         {
             bandeira = false;
+        }
+    }
+
+    //Método ve se os bloquinhos que ainda não foram revelados, são bombas.
+    public void BlocosNaoRevelados()
+    {
+        //percorre a matriz
+        foreach (Area area in areas)
+        {
+            //verifica se o revelado de area é igual a false
+            if (area.revelado == false && area.Bomba == true)
+            {
+                if (area.revelado == area.Bomba)
+                {
+                    voceVenceu = GameObject.Find("Você Venceu");
+                }
+            }
         }
     }
 }
