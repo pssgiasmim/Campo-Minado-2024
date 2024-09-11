@@ -28,10 +28,10 @@ public class GameManager : MonoBehaviour
     ManagerUI managerUI;
     GameObject menu, gameOver, voceVenceu;
 
-    //Verificação se a variável bandeira, que é falso, se tornou verdadeiro
+    //Verificação se a variável bandeira é verdadeira, vira falso, senão vira verdadeiro.
     public void ModoBandeira()
     {
-        if (bandeira)
+        if (bandeira) //ou pode fazer, [ bandeira = !bandeira ], o ponto [ ! ] siginifica, que o valor de bandeira será ao contrario, [ se esta verdadeiro, vira falso ou vice-versa ] 
         {
             bandeira = false;
         }
