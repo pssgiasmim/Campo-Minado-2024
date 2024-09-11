@@ -6,7 +6,7 @@ public class Area : MonoBehaviour
 {
 
     bool bomba;
-    public bool revelado;
+    public bool revelado, bandeira2;
 
     int indexI, indexJ;
 
@@ -48,7 +48,7 @@ public class Area : MonoBehaviour
         //altera a sprite  para uma bandeira se o bloco ainda não foi revelado
         else if (!revelado && GameManager.instance.bandeira)
         {
-            revelado = true;
+            bandeira2 = true;
             GetComponent<SpriteRenderer>().sprite = bandeira;
         }
 
