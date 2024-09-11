@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     //essa matriz NÃO está declarando tamanho e nem valores, apenas indica ser uma matriz;
 
     //Variavel que é chamada no script area, para verificação do modo bandeira
-    public bool bandeira;
+    public bool bandeira; //ou pode encapsular, mas deve retirar o set (para não ser alterada)
 
     [SerializeField] GameObject areaPrefab;
 
