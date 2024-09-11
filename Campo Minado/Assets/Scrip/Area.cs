@@ -6,7 +6,7 @@ public class Area : MonoBehaviour
 {
 
     bool bomba;
-     public bool revelado;
+    public bool revelado;
 
     int indexI, indexJ;
 
@@ -39,10 +39,10 @@ public class Area : MonoBehaviour
             else
             {
                 revelado = true;
-
                 // sempre que for pegar um iten do GetComponent, ele deve estar no meio do sinal de  < e >.
                 GetComponent<SpriteRenderer>().sprite = spritesVazios[GameManager.instance.ChecarEntorno(indexI, indexJ)];
-
+                //chama o checar vitória
+                GameManager.instance.ChecarVitoria();
             }
         }
         //altera a sprite  para uma bandeira se o bloco ainda não foi revelado

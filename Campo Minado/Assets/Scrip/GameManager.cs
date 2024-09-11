@@ -229,26 +229,33 @@ public class GameManager : MonoBehaviour
 
         //ligar a tela de game over
         gameOver.SetActive(true);
+        managerUI.AtualizarTexto(false);
 
 
     }
 
-    
-
-    //Método ve se os bloquinhos que ainda não foram revelados, são bombas.
-    public void BlocosNaoRevelados()
+     //Método ve se os bloquinhos que ainda não foram revelados, são bombas, e ver se é vitória
+    public void ChecarVitoria()
     {
-        //percorre a matriz
+        //variavel pertence apenas neste método
+        int quantidadeNaoRevelados = 0;
+        //percorre cada bloquinho da matriz
         foreach (Area area in areas)
         {
-            //verifica se o revelado de area é igual a false
-            if (area.revelado == false && area.Bomba == true)
+            //verifica se a area revelada já foi revelada ou não
+            if (!area.revelado)
             {
-                if (area.revelado == area.Bomba)
-                {
-                    voceVenceu = GameObject.Find("Você Venceu");
-                }
+                //acrescenta +1 na quantidade de blocos não revelados
+                quantidadeNaoRevelados++;
             }
         }
+        //se a quantidade de blocos não revelados for igual à quantidade de bombas.
+        if(quantidadeNaoRevelados == numeroDeBombas)
+        {
+            //se for, atualiza o texto para Vitória.
+            gameOver.SetActive(true);
+            managerUI.AtualizarTexto(true);
+        }
+        
     }
 }
