@@ -26,6 +26,7 @@ public class Area : MonoBehaviour
 
 
     //Método para se clicar num bloquinho, ele REVELAR se tem bomba ou não.
+    //O método também vê se o botão modo bandeira está ativado ou não
     public void Revelar()
     {
         //o ! só pode ser usado em variáveis booleanas.
@@ -44,7 +45,8 @@ public class Area : MonoBehaviour
 
             }
         }
-        else if (GameManager.instance.bandeira)
+        //altera a sprite  para uma bandeira se o bloco ainda não foi revelado
+        else if (!revelado && GameManager.instance.bandeira)
         {
             revelado = true;
             GetComponent<SpriteRenderer>().sprite = bandeira;
