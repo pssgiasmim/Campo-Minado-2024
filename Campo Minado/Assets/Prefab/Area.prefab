@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revelado: 0
+  bandeira: 0
   spritesVazios:
   - {fileID: 21300000, guid: e1e185813077683468e6fa9f74ecdb46, type: 3}
   - {fileID: 21300000, guid: 361d87578b9ba404a89c18105c64d080, type: 3}
@@ -111,7 +112,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2a392f8c2674c5b4e9e5652f5492f218, type: 3}
   - {fileID: 21300000, guid: bff2c0e98c89f614896515e2caa37350, type: 3}
   bombaSprite: {fileID: 21300000, guid: 8c9ff6bdb1c01bc4fabb52246d56cedb, type: 3}
-  bandeira: {fileID: 21300000, guid: 77dd271bd7052db44ad535534ad525cc, type: 3}
+  bandeiraSprite: {fileID: 21300000, guid: 77dd271bd7052db44ad535534ad525cc, type: 3}
+  spriteOriginal: {fileID: 0}
 --- !u!61 &6362252463837334790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,19 +178,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2743576969470511227}
           m_TargetAssemblyTypeName: Area, Assembly-CSharp
-          m_MethodName: Revelar
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2743576969470511227}
-          m_TargetAssemblyTypeName: Area, Assembly-CSharp
-          m_MethodName: BloqueioArea
+          m_MethodName: Clicado
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

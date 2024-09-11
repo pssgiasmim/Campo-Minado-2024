@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         managerUI = GetComponent<ManagerUI>();
         menu = GameObject.Find("Menu Window");
-        gameOver = GameObject.Find("Game Over");
+        gameOver = GameObject.Find("Game Over e Vitória");
     }
 
     public void DerfinirDiametro(string value)

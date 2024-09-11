@@ -6,7 +6,7 @@ public class Area : MonoBehaviour
 {
 
     bool bomba;
-    public bool revelado, bandeira2;
+    public bool revelado, bandeira;
 
     int indexI, indexJ;
 
@@ -14,7 +14,9 @@ public class Area : MonoBehaviour
     [SerializeField] Sprite[] spritesVazios;
 
     [SerializeField] Sprite bombaSprite;
-    [SerializeField] Sprite bandeira;
+    [SerializeField] Sprite bandeiraSprite;
+    [SerializeField] Sprite spriteOriginal;
+
     public bool Bomba { get => bomba; set => bomba = value; }
 
     //armazena a "localização" dos bloquinhos na área. é um indice que começa a apartir de 0
@@ -24,6 +26,32 @@ public class Area : MonoBehaviour
         indexJ = j;
     }
 
+    public void Clicado()
+    {
+        if (GameManager.instance.bandeira)
+        {
+            TransformarBandeira();
+        }
+        else
+        {
+            Revelar();
+        }
+    }
+
+    void TransformarBandeira()
+    {
+        //altera a sprite  para uma bandeira se o bloco ainda não foi revelado
+        if (!bandeira)
+        {
+            bandeira = true;
+            GetComponent<SpriteRenderer>().sprite = bandeiraSprite;
+        }
+        else
+        {
+            bandeira = false;
+            GetComponent<SpriteRenderer>().sprite = spriteOriginal;
+        }
+    }
 
     //Método para se clicar num bloquinho, ele REVELAR se tem bomba ou não.
     //O método também vê se o botão modo bandeira está ativado ou não
@@ -45,14 +73,7 @@ public class Area : MonoBehaviour
                 GameManager.instance.ChecarVitoria();
             }
         }
-        //altera a sprite  para uma bandeira se o bloco ainda não foi revelado
-        else if (!revelado && GameManager.instance.bandeira)
-        {
-            bandeira2 = true;
-            GetComponent<SpriteRenderer>().sprite = bandeira;
-        }
 
-        
     }
 
     public void RevelarBomba()
