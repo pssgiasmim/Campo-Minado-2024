@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5660f9dca6ae57498d28df45220eacf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  revelado: 0
   spritesVazios:
   - {fileID: 21300000, guid: e1e185813077683468e6fa9f74ecdb46, type: 3}
   - {fileID: 21300000, guid: 361d87578b9ba404a89c18105c64d080, type: 3}
@@ -110,7 +111,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2a392f8c2674c5b4e9e5652f5492f218, type: 3}
   - {fileID: 21300000, guid: bff2c0e98c89f614896515e2caa37350, type: 3}
   bombaSprite: {fileID: 21300000, guid: 8c9ff6bdb1c01bc4fabb52246d56cedb, type: 3}
-  bandeira: {fileID: 21300000, guid: 138b7635d69549c4d8608f7f074493e4, type: 3}
+  bandeira: {fileID: 21300000, guid: 77dd271bd7052db44ad535534ad525cc, type: 3}
 --- !u!61 &6362252463837334790
 BoxCollider2D:
   m_ObjectHideFlags: 0

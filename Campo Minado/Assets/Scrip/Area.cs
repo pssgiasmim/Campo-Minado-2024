@@ -41,8 +41,13 @@ public class Area : MonoBehaviour
 
                 // sempre que for pegar um iten do GetComponent, ele deve estar no meio do sinal de  < e >.
                 GetComponent<SpriteRenderer>().sprite = spritesVazios[GameManager.instance.ChecarEntorno(indexI, indexJ)];
-                
+
             }
+        }
+        else if (GameManager.instance.bandeira)
+        {
+            revelado = true;
+            GetComponent<SpriteRenderer>().sprite = bandeira;
         }
 
         
@@ -54,20 +59,4 @@ public class Area : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = bombaSprite;
 
     }
-
-    //Método para dar a opção de ativar o modo bandeira [bloqueia o bloco e muda a sprite]
-    public void BloqueioArea()
-    {
-        if (GameManager.instance.bandeira == true)
-        {
-           
-            
-                revelado = true;
-                GetComponent<SpriteRenderer>().sprite = bandeira;
-            
-            
-        }
-    }
-  
-    
 }
