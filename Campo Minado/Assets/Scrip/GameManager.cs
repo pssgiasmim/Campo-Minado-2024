@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     //essa matriz NÃO está declarando tamanho e nem valores, apenas indica ser uma matriz;
 
     //Variavel que é chamada no script area, para verificação do modo bandeira
-    public bool bandeira = false;
+    public bool bandeira;
 
     [SerializeField] GameObject areaPrefab;
 
@@ -27,6 +27,19 @@ public class GameManager : MonoBehaviour
 
     ManagerUI managerUI;
     GameObject menu, gameOver, voceVenceu;
+
+    //Verificação se a variável bandeira, que é falso, se tornou verdadeiro
+    public void ModoBandeira()
+    {
+        if (bandeira)
+        {
+            bandeira = false;
+        }
+        else
+        {
+            bandeira = true;
+        }
+    }
 
     private void Start()
     {
@@ -220,18 +233,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //Verificação se a variável bandeira, que é falso, se tornou verdadeiro
-    public void ModoBandeira()
-    {
-        if (!bandeira)
-        {
-            bandeira = true;
-        }
-        else
-        {
-            bandeira = false;
-        }
-    }
+    
 
     //Método ve se os bloquinhos que ainda não foram revelados, são bombas.
     public void BlocosNaoRevelados()
